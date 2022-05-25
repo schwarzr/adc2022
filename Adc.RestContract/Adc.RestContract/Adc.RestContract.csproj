@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Codeworx.Rest.AspNetCore" Version="1.0.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.4" />
+		<ProjectReference Include="..\Adc.RestContract.Database\Adc.RestContract.Database.csproj" />
+		<ProjectReference Include="..\Adc.RestContract.Data\Adc.RestContract.Data.csproj" />
+		<ProjectReference Include="..\Adc.RestContract.Service\Adc.RestContract.Service.csproj" />
+		<ProjectReference Include="..\Adc.RestContract.Sqlite\Adc.RestContract.Sqlite.csproj" />
+		<ProjectReference Include="..\Adc.RestContract.SqlServer\Adc.RestContract.SqlServer.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\" />
+	</ItemGroup>
+
+</Project>
