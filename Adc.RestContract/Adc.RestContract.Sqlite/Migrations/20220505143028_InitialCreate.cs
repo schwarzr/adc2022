@@ -23,9 +23,9 @@ namespace Adc.RestContract.Sqlite.Migrations
                     table.PrimaryKey("PK_ToDoEntries", x => x.Id);
                 });
 
-            migrationBuilder.InsertData("ToDoEntries", new[] { "Id", "Title", "DueDate" }, new object[] { Guid.NewGuid(), "Eat", new DateTime(2022, 5, 6, 13, 0, 0) });
-            migrationBuilder.InsertData("ToDoEntries", new[] { "Id", "Title", "DueDate" }, new object[] { Guid.NewGuid(), "Sleep", new DateTime(2022, 5, 6, 8, 0, 0) });
-            migrationBuilder.InsertData("ToDoEntries", new[] { "Id", "Title", "DueDate" }, new object[] { Guid.NewGuid(), "Code", new DateTime(2022, 5, 6, 11, 0, 0) });
+            migrationBuilder.InsertData("ToDoEntries", new[] { "Id", "Title", "DueDate" }, new object[] { Guid.NewGuid(), "Eat-Sqlite", new DateTime(2022, 5, 6, 13, 0, 0) });
+            migrationBuilder.InsertData("ToDoEntries", new[] { "Id", "Title", "DueDate" }, new object[] { Guid.NewGuid(), "Sleep-Sqlite", new DateTime(2022, 5, 6, 8, 0, 0) });
+            migrationBuilder.InsertData("ToDoEntries", new[] { "Id", "Title", "DueDate" }, new object[] { Guid.NewGuid(), "Code-Sqlite", new DateTime(2022, 5, 6, 11, 0, 0) });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
