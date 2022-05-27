@@ -14,12 +14,12 @@ builder.Services.AddTransient<IMetadataRepository>(p => p.GetRequiredService<Def
 builder.Services.AddTransient<IMetadataRepositorySetter>(p => p.GetRequiredService<DefaultMetadataRepository>());
 builder.Services.AddTransient<MetadataModel>(p => p.GetRequiredService<IMetadataRepository>().GetModel());
 
-////builder.Services.AddSingleton<IAdditionalDataEntityMapping, AdditionalDataEntityMapping<CustomerDetailItem, Customer>>();
-////builder.Services.AddSingleton<IAdditionalDataEntityMapping, AdditionalDataEntityMapping<CustomerListData, Customer>>();
-////builder.Services.AddSingleton<IAdditionalDataEntityMapping, AdditionalDataEntityMapping<CustomerPayloadItem, Customer>>();
+builder.Services.AddSingleton<IAdditionalDataEntityMapping, AdditionalDataEntityMapping<CustomerDetailItem, Customer>>();
+builder.Services.AddSingleton<IAdditionalDataEntityMapping, AdditionalDataEntityMapping<CustomerListData, Customer>>();
+builder.Services.AddSingleton<IAdditionalDataEntityMapping, AdditionalDataEntityMapping<CustomerPayloadItem, Customer>>();
 
 builder.Services.AddDbContext<CrmContext>(p => p.UseSqlServer("Data Source=.; Initial Catalog=CrmCustomization;Integrated Security=true;"));
-builder.Services.AddOpenApiDocument();
+builder.Services.AddOpenApiDocument<CrmContext>();
 
 var app = builder.Build();
 

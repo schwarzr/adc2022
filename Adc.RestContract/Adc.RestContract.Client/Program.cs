@@ -1,22 +1,28 @@
 ﻿using Adc.RestContract.Client.Commands;
+using Adc.RestContract.Controllers;
+using Adc.RestContract.Data;
+using Adc.RestContract.Database;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 var serviceCollection = new ServiceCollection();
 
 serviceCollection.AddCommand<ListCommand>("list");
 serviceCollection.AddCommand<GetCommand>("get");
+////serviceCollection.AddRestClient("https://localhost:7185")
+////    .AddRestProxies(typeof(Program).Assembly);
 
-//serviceCollection.AddScoped<IToDoService, ToDoController>();
-//serviceCollection.AddDbContext<ToDoContext>(p => p.UseSqlite(@"Data Source=c:\Temp\todo.sqlite", p => p.MigrationsAssembly("Adc.RestContract.Sqlite")));
+serviceCollection.AddScoped<IToDoService, ToDoController>();
+serviceCollection.AddDbContext<ToDoContext>(p => p.UseSqlite(@"Data Source=c:\Temp\todo.sqlite", p => p.MigrationsAssembly("Adc.RestContract.Sqlite")));
 
 
 var services = serviceCollection.BuildServiceProvider();
 
-//using (var scope = services.CreateScope())
-//{
-//    var ctx = scope.ServiceProvider.GetRequiredService<ToDoContext>();
-//    ctx.Database.Migrate();
-//}
+using (var scope = services.CreateScope())
+{
+    var ctx = scope.ServiceProvider.GetRequiredService<ToDoContext>();
+    ctx.Database.Migrate();
+}
 
 Console.WriteLine("Ready!");
 Console.Write('>');

@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 class AppComponent {
     constructor() {
         this.title = 'client-settings';
-        this.logo = 'https://angular.io/assets/images/logos/angular/angular.png';
+        this.logo = AppSettings.getValue('logo');
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class DashboardComponent {
     constructor() {
-        this.company = 'Testcompany';
+        this.company = AppSettings.getValue('company');
     }
 }
 DashboardComponent.ɵfac = function DashboardComponent_Factory(t) { return new (t || DashboardComponent)(); };

@@ -9,6 +9,6 @@ export class DashboardComponent
     public company: string;
 
     constructor() {
-        this.company = 'Testcompany';
+        this.company = AppSettings.getValue('company');
     }
 }

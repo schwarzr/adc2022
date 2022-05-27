@@ -18,5 +18,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'client-settings';
 
-  public logo: string = 'https://angular.io/assets/images/logos/angular/angular.png';
+  public logo: string = AppSettings.getValue('logo');
 }

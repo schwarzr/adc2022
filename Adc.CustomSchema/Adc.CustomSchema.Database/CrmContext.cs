@@ -29,8 +29,8 @@ namespace Adc.CustomSchema.Database
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            ////optionsBuilder.ReplaceService<IModelCacheKeyFactory, CustomizationModelCacheKeyFactory>();
-            ////optionsBuilder.ReplaceService<IQueryCompiler, CustomQueryCompiler>();
+            optionsBuilder.ReplaceService<IModelCacheKeyFactory, CustomizationModelCacheKeyFactory>();
+            optionsBuilder.ReplaceService<IQueryCompiler, CustomQueryCompiler>();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -41,6 +41,7 @@ namespace Adc.CustomSchema.Database
             modelBuilder.Entity<Customer>();
             modelBuilder.Entity<Customization>();
 
+            AddCustomization(modelBuilder);
         }
 
         private void AddCustomization(ModelBuilder modelBuilder)

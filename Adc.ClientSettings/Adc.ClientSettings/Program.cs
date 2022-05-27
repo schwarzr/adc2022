@@ -1,6 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthorization();
+builder.Services.AddClientSettings()
+    .WithConfiguration(builder.Configuration.GetSection("Angular"));
 
 var app = builder.Build();
 
@@ -19,6 +21,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapClientSettings("settings.js");
 app.MapFallbackToFile("index.html");
 
 app.Run();

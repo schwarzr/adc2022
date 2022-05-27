@@ -51,7 +51,7 @@ namespace Adc.CustomSchema.Controllers
             _db.Add(dbItem);
 
             var entry = _db.Entry(dbItem);
-            //entry.UpdateAdditionalProperties(payload);
+            entry.UpdateAdditionalProperties(payload);
 
             await _db.SaveChangesAsync();
 
@@ -72,7 +72,7 @@ namespace Adc.CustomSchema.Controllers
             dbItem.ZipCode = payload.ZipCode;
 
             var entry = _db.Entry(dbItem);
-            //entry.UpdateAdditionalProperties(payload);
+            entry.UpdateAdditionalProperties(payload);
 
             await _db.SaveChangesAsync();
 

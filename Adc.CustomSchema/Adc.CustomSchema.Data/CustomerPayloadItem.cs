@@ -4,10 +4,11 @@ using Adc.CustomSchema.Data;
 
 namespace Adc.CustomSchema.Data
 {
-    public class CustomerPayloadItem
+    public class CustomerPayloadItem : IExtendableObject
     {
         public CustomerPayloadItem()
         {
+            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         public string FirstName { get; set; }
@@ -23,5 +24,7 @@ namespace Adc.CustomSchema.Data
         public string Phone { get; set; }
 
         public CountryInfo Country { get; set; }
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public Dictionary<string, object> AdditionalProperties { get; set; }
     }
 }

@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers()
-    .AddApplicationPart(typeof(ToDoController).Assembly);
+    .AddApplicationPart(typeof(ToDoController).Assembly)
+    .AddRestContract();
 
 //builder.Services.AddDbContext<ToDoContext>(p => p.UseSqlite(@"Data Source=c:\Temp\todo.sqlite", p => p.MigrationsAssembly("Adc.RestContract.Sqlite")));
 builder.Services.AddDbContext<ToDoContext>(p => p.UseSqlServer("Data Source=.;Initial Catalog=ToDo;Integrated Security=True;", p => p.MigrationsAssembly("Adc.RestContract.SqlServer")));
